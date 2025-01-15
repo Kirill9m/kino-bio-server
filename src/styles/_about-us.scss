@@ -1,0 +1,138 @@
+@use 'variables' as *;
+
+.about-us__section {
+  //   border: 1px solid $gray;
+  display: flex;
+  flex-direction: column;
+  //   align-items: center;
+  justify-content: center;
+  padding: 50px 0;
+  color: $gray;
+  margin: 0 5%;
+
+  h2 {
+    margin-left: 10%;
+    margin-bottom: $space-md;
+  }
+  p {
+    margin: 1rem;
+  }
+  .about-us__content {
+    display: flex; // Keep this to arrange children in a row
+    // align-items: flex-start; // Align items at the top
+
+    .about-us__text {
+      font-size: $font-size-lg;
+      margin-bottom: $space-md;
+      margin-left: $space-md; // Optional: add left margin to create space from the image
+    }
+
+    .about-us__map-image {
+      border: 5px solid #dcdcdc;
+      margin-right: $space-md; // Space between image and text
+      width: 30%; // Set width
+      height: auto; // Maintain aspect ratio
+    }
+  }
+}
+
+.rules {
+  margin-top: 5%;
+
+  .rules__section {
+    color: $gray;
+    margin: 0 5%;
+
+    .rules__heading {
+      color: $gray;
+      margin-bottom: $space-md;
+      text-decoration: underline;
+      text-align: center;
+    }
+
+    .rules__content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      .rules__list {
+        padding-left: 5%;
+        flex: 1;
+      }
+
+      .rules__image {
+        width: 25%;
+        height: auto;
+        margin-left: 10%;
+      }
+    }
+  }
+}
+
+// .rules {
+//   margin-top: 5%;
+
+//   .rules__heading {
+//     // justify-self: end;
+//     color: $gray;
+//     // margin-right: 25%;
+//     margin-left: 60%;
+//     margin-bottom: $space-md;
+//     text-decoration: underline;
+//   }
+
+//   .rules__section {
+//     //   border: 1px solid $gray;
+//     display: flex;
+//     // flex-direction: column;
+//     // align-items: flex-start;
+//     // justify-content: center;
+//     // padding: 50px 0;
+//     color: $gray;
+//     margin: 0 5%;
+
+//     .rules__image {
+//       width: 25%;
+//       height: 25%;
+//       float: right;
+//       margin-left: 10%;
+//     }
+
+//     p {
+//       margin: 1rem 0;
+//       width: 30ch;
+//     }
+//     .rules__list {
+//       padding-left: 5%;
+//     }
+//   }
+// }
+
+.faq__section {
+  //   border: 1px solid $gray;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  // justify-content: center;
+  padding: 50px 0;
+  color: $gray;
+  margin: 0 5%;
+  h2 {
+    margin-left: 4%;
+    margin-bottom: $space-md;
+  }
+  .faq__content {
+    display: flex;
+    margin-top: 2em;
+
+    p {
+      margin: 1rem;
+    }
+
+    .faq__image {
+      width: 75%;
+      height: auto;
+      margin-left: 10%;
+    }
+  }
+}

@@ -1,0 +1,52 @@
+@use 'variables' as *;
+
+.footer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  font-family: $font-family-base;
+  color: $gray;
+  padding: 6rem;
+}
+
+.footer__heading {
+  padding: 0 0 1rem 0;
+  font-weight: 700;
+}
+
+.footer__section {
+  padding: 1rem;
+}
+
+.footer__item {
+  list-style: none;
+  padding: 0.3rem 0 0.3rem 0;
+}
+
+.footer__link {
+  text-decoration: none;
+  color: $gray;
+  font-weight: 600;
+}
+
+@media (max-width: 800px) {
+  .footer {
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    grid-template-columns: 1fr;
+    padding-left: 3rem;
+    padding-bottom: 1rem;
+  }
+}
+
+.line-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.horizontal-line {
+  width: 85%;
+  height: 0.1rem;
+  background-color: $gray;
+  margin: 2rem;
+}

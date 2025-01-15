@@ -1,0 +1,85 @@
+//Live Events section
+@use 'variables' as *;
+
+/* Styles for the .live section */
+.live {
+  font-family: Helvetica;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 1rem;
+  margin: 0 auto;
+
+  .live__header {
+    color: $gray;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .live__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1rem;
+
+    .live__list-item {
+      max-width: 16.5rem;
+      border-bottom-left-radius: 0.2rem;
+      border-bottom-right-radius: 0.2rem;
+      color: black;
+      background-color: $gray;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 4rem;
+      text-align: left;
+
+      .live__list-item-image-wrapper {
+        margin: 0.1rem auto;
+
+        img {
+          width: 260px;
+          height: 380px;
+        }
+      }
+
+      .live__list-item-title {
+        font-size: $font-size-lg;
+        font-weight: bold;
+        margin: 0 $space-xs $space-xs;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        box-sizing: border-box;
+
+        .live__list-item-btn {
+          margin-left: auto;
+          margin-right: 1rem;
+          padding: $btn-padding;
+          font-size: $font-size-base;
+          font-family: $font-family-base;
+          color: $gray;
+          background-color: $red;
+          border: 3px solid $gray;
+          font-weight: 550;
+          cursor: pointer;
+          text-align: center;
+          max-width: calc(50% - $space-xs);
+        }
+      }
+
+      .live__list-item-description {
+        font-size: $font-size-base;
+        text-align: left;
+        margin-top: $space-xs;
+        margin-bottom: $space-xs;
+        margin-left: $space-xs;
+      }
+    }
+  }
+}
