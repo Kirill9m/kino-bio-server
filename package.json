@@ -4,11 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "prepare": "husky install",
-    "sass": "sass --watch src/styles/styles.scss ./src/styles/main.css"
+    "start": "node index.js",
+    "sass": "sass src/styles/styles.scss ./src/styles/main.css"
   },
   "husky": {
     "hooks": {
