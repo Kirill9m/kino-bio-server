@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "sass": "sass --watch src/styles/styles.scss ./src/styles/main.css"
   },
   "husky": {
     "hooks": {
@@ -30,6 +31,7 @@
     "vite": "^6.0.1"
   },
   "dependencies": {
-    "sass": "^1.83.0"
+    "express": "^4.21.2",
+    "sass": "^1.83.4"
   }
 }
