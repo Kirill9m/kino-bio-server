@@ -8,6 +8,8 @@ export default class LoadAllFilmsPage extends EventTarget {
 
   async start(listContainer) {
     const filmsFromApi = await this.backend.loadAllFilms();
+    const filmsFromApiData = filmsFromApi.data;
+    console.log(filmsFromApiData);
 
     this.filter = new SearchFilter('');
     this.filter.addEventListener('change', () => {
@@ -21,10 +23,10 @@ export default class LoadAllFilmsPage extends EventTarget {
     listElem.className = 'moviesSecond__list';
     listContainer.append(listElem);
 
-    this.films = filmsFromApi.map((filmData) => {
+    this.films = filmsFromApiData.map((filmData) => {
       const filmElem = this.renderFilm(filmData);
       listElem.append(filmElem);
-      return { data: filmData, elem: filmElem };
+      return { data: filmData.attributes, elem: filmElem };
     });
   }
 
@@ -40,13 +42,10 @@ export default class LoadAllFilmsPage extends EventTarget {
     movieCard.classList.add('moviesSecond__list__elem');
 
     movieCard.innerHTML = `
-        <img src="${data.image}" class="moviesSecond__list__elem__image"  alt="${data.title}">
-        <h3 class="moviesSecond__list__elem__title">${data.title}</h3>
-        <p class="moviesSecond__list__elem__desc">${data.desc} <strong>(${data.year})</strong></p>
-        <p class="moviesSecond__list__elem__rating">Rating: ${data.rating}</p>
-        <p class="moviesSecond__list__elem__date">Datum: ${data.date}</p>
-        <p class="moviesSecond__list__elem__price">Pris: ${data.price}SEK</p>
-        <p class="moviesSecond__list__elem__seat">Platser: ${data.seatsAvailable}</p>
+        <img src="${data.attributes.image.url}" class="moviesSecond__list__elem__image"  alt="${data.title} image">
+        <h3 class="moviesSecond__list__elem__title">${data.attributes.title}</h3>
+        <p class="moviesSecond__list__elem__desc">${data.attributes.intro}</p>
+        <p class="moviesSecond__list__elem__rating">Id: ${data.id}</p>
     `;
     return movieCard;
   }

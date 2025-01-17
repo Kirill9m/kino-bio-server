@@ -14,8 +14,7 @@ if (document.querySelector('.moviesSecond')) {
   document.querySelector('.movies__message').appendChild(loadingMessage);
   loadingMessage.style.display = 'none';
 
-  const backend = new ApiBackend('https://kino-bio-projekt.onrender.com');
-  console.log('Link to API:' + backend);
+  const backend = new ApiBackend('https://plankton-app-xhkom.ondigitalocean.app/api');
   const filmList = new LoadAllFilmsPage(backend);
   const moviesContainer = document.querySelector('.moviesSecond');
 
