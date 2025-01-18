@@ -78,3 +78,72 @@
 .moviesSecond__list__elem__rating {
   font-weight: bold;
 }
+
+.eachMovie__title {
+  font-size: 3rem;
+  color: #888;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.eachMovie__desc {
+  display: block;
+  font-size: 1.2rem;
+  color: #555;
+  margin: 10px 12rem;
+  text-align: justify;
+  padding: 15px;
+  min-height: 6rem;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+
+  @media (max-width: 768px) {
+    margin: 10px 5rem;
+  }
+}
+
+.eachMovie__img {
+  display: block;
+  max-width: 50%;
+  height: auto;
+  margin: 20px auto;
+  border: 5px solid #ecf0f1;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.eachMovie__btn {
+  background-color: transparent;
+  border: 2.6px solid white;
+  box-sizing: border-box;
+  color: white;
+  cursor: pointer;
+  font-family: Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: 25%;
+  padding: 8px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+
+  a {
+    color: white;
+    text-decoration: none;
+    background: none;
+    border: none;
+    outline: none;
+  }
+}
+
+.eachMovie__btn:hover {
+  background-color: rgba(147, 125, 125, 0.1);
+  color: rgb(255, 255, 255);
+  border-color: rgb(109, 78, 78);
+}
+
+.eachMovie__btn:focus {
+  outline: none;
+  box-shadow: rgb(56, 27, 27);
+}
