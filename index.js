@@ -30,12 +30,15 @@ app.get('/movie/:id', async (request, response) => {
   const filmId = request.params.id;
   try {
     const film = await backend.loadFilmById(filmId);
+    const filmData = film.data.attributes;
 
-    renderPage(response, 'layout/movieLayout', film.data.attributes.title, {
-      film: film.data.attributes,
+    renderPage(response, 'layout/movieLayout', filmData.title, {
+      film: filmData,
     });
   } catch (error) {
-    response.status(404).render('pages/404', { title: '404 Not Found' });
+    response.status(404);
+    renderPage(response, 'pages/404', 'Error 404', { title: '404 Not Found' });
+    // response.status(404).render('pages/404', { title: '404 Not Found' });
   }
 });
 app.use('/src', express.static('./src'));
