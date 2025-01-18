@@ -11,4 +11,13 @@ export default class ApiBackend {
     const payload = await response.json();
     return payload;
   }
+
+  async loadFilmById(id) {
+    const response = await fetch(`${this.apiUrl}/movies/${id}`);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch movie with ID ${id}: ${response.statusText}`);
+    }
+    const payload = await response.json();
+    return payload;
+  }
 }

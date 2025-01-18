@@ -1,0 +1,9 @@
+{% extends "main-layout.njk" %}
+
+{% block MoviesContent %}
+<div>
+    <p><strong>Title:</strong> {{ film.title }}</p>
+    <p><strong>Description:</strong>{{ film.description }}</p>
+    <img src="{{ film.image.url }}" alt="Film image">
+</div>
+{% endblock %}

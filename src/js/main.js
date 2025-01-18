@@ -6,6 +6,7 @@ import LoadAllFilmsPage from './LoadAllFilmsPage.js';
 import ApiBackend from './ApiBackend.js';
 import MobileMenu from './MobileMenu.js';
 import initLiveEvents from './_initLiveEvents.js';
+import FilmChooser from './FilmChooser.js';
 
 if (document.querySelector('.moviesSecond')) {
   const loadingMessage = document.createElement('h4');
@@ -16,9 +17,11 @@ if (document.querySelector('.moviesSecond')) {
 
   const backend = new ApiBackend('https://plankton-app-xhkom.ondigitalocean.app/api');
   const filmList = new LoadAllFilmsPage(backend);
-  const moviesContainer = document.querySelector('.moviesSecond');
+  const filmChooser = new FilmChooser(backend);
 
+  const moviesContainer = document.querySelector('.moviesSecond');
   filmList.start(moviesContainer, loadingMessage);
+  filmChooser.start(moviesContainer);
 } else {
   const backend = new ApiBackend('https://kino-bio-projekt.onrender.com');
   const movieCardGenerator = new MovieCardGenerator(backend);

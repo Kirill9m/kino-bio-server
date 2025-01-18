@@ -40,6 +40,7 @@ export default class LoadAllFilmsPage extends EventTarget {
   renderFilm(data) {
     const movieCard = document.createElement('li');
     movieCard.classList.add('moviesSecond__list__elem');
+    movieCard.dataset.id = data.id;
 
     movieCard.innerHTML = `
         <img src="${data.attributes.image.url}" class="moviesSecond__list__elem__image"  alt="${data.title} image">
