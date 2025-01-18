@@ -1,18 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/src/styles/main.css">
-  <title>{{ title }}</title>
-</head>
+{% include "head.njk" %}
 <body>
   {% include "header.njk" %}
   <section class="eachMovie">
     <h1 class="eachMovie__title">{{ title }}</h1>
     <span class="eachMovie__desc">{{ film.intro }}</span>
     <img class="eachMovie__img" src="{{ film.image.url }}" alt="{{ film.title }} image">
-    <button class="eachMovie__btn"><a href="/movies">Back</a></button>
+    <button class="eachMovie__btn"><a href="/movies">Tillbaka</a></button>
   </section>
   {% include "footer.njk" %}
   <script type='module' src='/src/js/main.js'></script>

@@ -46,7 +46,7 @@ export default class LoadAllFilmsPage extends EventTarget {
         <img src="${data.attributes.image.url}" class="moviesSecond__list__elem__image"  alt="${data.title} image">
         <h3 class="moviesSecond__list__elem__title">${data.attributes.title}</h3>
         <p class="moviesSecond__list__elem__desc">${data.attributes.intro}</p>
-        <p class="moviesSecond__list__elem__rating">Id: ${data.id}</p>
+        <p class="moviesSecond__list__elem__rating">Click on the container to see more</p>
     `;
     return movieCard;
   }

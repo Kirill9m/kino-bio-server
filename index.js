@@ -35,10 +35,9 @@ app.get('/movie/:id', async (request, response) => {
       film: film.data.attributes,
     });
   } catch (error) {
-    response.status(500).send(`Failed to load film: ${error.message}`);
+    response.status(404).render('404', { title: '404 Not Found' });
   }
 });
-app.use('/styles', express.static('./src/styles'));
 app.use('/src', express.static('./src'));
 
 app.listen(5080);
