@@ -3,6 +3,7 @@ import nunjucks from 'nunjucks';
 import renderPage from './lib/renderPage.js';
 import ApiBackend from './src/js/ApiBackend.js';
 
+const PORT = process.env.PORT || 5080;
 const app = express();
 const backend = new ApiBackend('https://plankton-app-xhkom.ondigitalocean.app/api');
 
@@ -38,9 +39,10 @@ app.get('/movie/:id', async (request, response) => {
   } catch (error) {
     response.status(404);
     renderPage(response, 'pages/404', 'Error 404', { title: '404 Not Found' });
-    // response.status(404).render('pages/404', { title: '404 Not Found' });
   }
 });
 app.use('/src', express.static('./src'));
 
-app.listen(5080);
+app.listen(PORT, '127.0.0.1', () => {
+  console.log(`Server running on http://127.0.0.1:${PORT}`);
+});
