@@ -24,7 +24,7 @@ export default class LiveEventDOMHandler {
 
   renderLiveEvents(liveEventData) {
     if (!this.container) {
-      console.error('Container element not found');
+      //console.error('Container element not found');
       return;
     }
 
