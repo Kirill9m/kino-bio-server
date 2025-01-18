@@ -15,15 +15,15 @@ app.set('view engine', 'njk');
 app.set('views', './templates');
 
 app.get('/', (request, response) => {
-  renderPage(response, 'index', 'Home');
+  renderPage(response, 'pages/index', 'Home');
 });
 
 app.get('/movies', (request, response) => {
-  renderPage(response, 'movies', 'Movies');
+  renderPage(response, 'pages/movies', 'Movies');
 });
 
 app.get('/about-us', (request, response) => {
-  renderPage(response, 'about-us', 'About');
+  renderPage(response, 'pages/about-us', 'About');
 });
 
 app.get('/movie/:id', async (request, response) => {
@@ -31,11 +31,11 @@ app.get('/movie/:id', async (request, response) => {
   try {
     const film = await backend.loadFilmById(filmId);
 
-    renderPage(response, 'movie-layout', film.data.attributes.title, {
+    renderPage(response, 'layout/movieLayout', film.data.attributes.title, {
       film: film.data.attributes,
     });
   } catch (error) {
-    response.status(404).render('404', { title: '404 Not Found' });
+    response.status(404).render('pages/404', { title: '404 Not Found' });
   }
 });
 app.use('/src', express.static('./src'));

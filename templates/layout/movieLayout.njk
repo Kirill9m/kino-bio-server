@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-{% include "head.njk" %}
+{% include "sections/head.njk" %}
 <body>
-  {% include "header.njk" %}
+  {% include "sections/header.njk" %}
   <section class="eachMovie">
     <h1 class="eachMovie__title">{{ title }}</h1>
-    <span class="eachMovie__desc">{{ film.intro }}</span>
+    <span class="eachMovie__desc">{{ film.intro | safe }}</span>
     <img class="eachMovie__img" src="{{ film.image.url }}" alt="{{ film.title }} image">
     <button class="eachMovie__btn"><a href="/movies">Tillbaka</a></button>
   </section>
-  {% include "footer.njk" %}
+  {% include "sections/footer.njk" %}
   <script type='module' src='/src/js/main.js'></script>
 </body>
 </html>

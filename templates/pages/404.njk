@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include "sections/head.njk" %}
+<body>
+{% include "sections/header.njk" %}
+  <h1 class="eachMovie__title" style="color: red;">{{ title }}</h1>
+  <span class="eachMovie__desc">Filmen du leter efter finns inte</span>
+  <button class="eachMovie__btn"><a href="/movies">Tillbaka</a></button>
+{% include "sections/footer.njk" %}
+</body>
+</html>

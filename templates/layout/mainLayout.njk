@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang='en'>
-{% include "head.njk" %}
+{% include "sections/head.njk" %}
   <body>
-    {% include "header.njk" %}
+    {% include "sections/header.njk" %}
     {% block content %}{% endblock %}
-    {% include "footer.njk" %}
+    {% include "sections/footer.njk" %}
     <script type='module' src='src/js/main.js'></script>
   </body>
 </html>
