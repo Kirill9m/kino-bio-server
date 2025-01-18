@@ -1,41 +1,4 @@
-<html lang='en'>
-  <head>
-    <meta charset='UTF-8' />
-    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-    <link rel='stylesheet' href='src/styles/main.css' />
-    <title>Kino-bio-movies</title>
-  </head>
-
-  <body>
-    <header class='header'>
-      <div class='navigation__mobile'>
-        <a href='/kino-bio-projekt/index'><div class='header__logo'></div></a>
-        <button class='hamburger' aria-label='Menu'>
-          <span class='bar'></span>
-          <span class='bar'></span>
-          <span class='bar'></span>
-        </button>
-      </div>
-      <ul class='hamburger__items'>
-        {{#each menuItems}}
-          <li class="hamburger__list"><a href="{{this.link}}">{{this.label}}</a></li>
-        {{/each}}
-      </ul>
-
-      <a href='/'><div class='header__logo'></div> </a>
-      <nav class='header__nav'>
-        <ul class='header__nav-list'>
-          {{#each menuItems}}
-            <li class="header__nav-item"><a href="{{this.link}}" class="header__nav-link" aria-label="Go to Biljetter">{{this.label}}</a></li>
-          {{/each}}
-        </ul>
-      </nav>
-      <a class='header__bookTicket' aria-label='Book tickets now'>
-        <button class='header__BookTicket-button'>BOKA BILJETT</button>
-      </a>
-    </header>
-    {{{body}}}
-    <div class='line-container'>
+<div class='line-container'>
       <div class='horizontal-line'></div>
     </div>
     <footer class='footer'>
@@ -65,7 +28,3 @@
         </ul>
       </div>
     </footer>
-
-    <script type='module' src='src/js/main.js'></script>
-  </body>
-</html>

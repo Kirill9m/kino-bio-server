@@ -1,10 +1,14 @@
 import express from 'express';
-import { engine } from 'express-handlebars';
+import nunjucks from 'nunjucks';
 import renderPage from './lib/renderPage.js';
 
 const app = express();
-app.engine('handlebars', engine());
-app.set('view engine', 'handlebars');
+nunjucks.configure('templates', {
+  autoescape: true,
+  express: app,
+});
+
+app.set('view engine', 'njk');
 app.set('views', './templates');
 
 app.get('/', (request, response) => {
