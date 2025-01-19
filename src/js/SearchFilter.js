@@ -1,34 +1,34 @@
 export default class SearchFilter extends EventTarget {
-    constructor(searchString){
-        super();
-        this.searchString = searchString;
+  constructor(searchString) {
+    super();
+    this.searchString = searchString;
+  }
+
+  doesFilmMatch(films) {
+    if (!this.searchString) {
+      return true;
     }
 
-    doesFilmMatch(films) {
-        if (!this.searchString) {
-            return true;
-        }
-    
-        const title = films?.data?.title?.toLowerCase() || '';
-        const desc = films?.data?.description?.toLowerCase() || '';
-        const searchString = this.searchString.toLowerCase();
-    
-        return title.includes(searchString) || desc.includes(searchString);
-    }
+    const title = films?.data?.title?.toLowerCase() || '';
+    const desc = films?.data?.description?.toLowerCase() || '';
+    const searchString = this.searchString.toLowerCase();
 
-    render(){
-        const searchBar = document.createElement('div');
-        searchBar.className = "moviesSecond__search"
+    return title.includes(searchString) || desc.includes(searchString);
+  }
 
-        const searchBarInput = document.createElement('input');
-        searchBarInput.placeholder = "Sök film";
-        searchBarInput.addEventListener('keyup', () => {
-            this.searchString = searchBarInput.value;
-            this.dispatchEvent(new Event('change'));
-        });
+  render() {
+    const searchBar = document.createElement('div');
+    searchBar.className = 'moviesSecond__search';
 
-        searchBar.append(searchBarInput);
+    const searchBarInput = document.createElement('input');
+    searchBarInput.placeholder = 'Sök film';
+    searchBarInput.addEventListener('keyup', () => {
+      this.searchString = searchBarInput.value;
+      this.dispatchEvent(new Event('change'));
+    });
 
-        return searchBar;
-    }
+    searchBar.append(searchBarInput);
+
+    return searchBar;
+  }
 }
