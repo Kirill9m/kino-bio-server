@@ -81,3 +81,5 @@ app.use('/src', express.static('./src'));
 app.listen(PORT, '127.0.0.1', () => {
   console.log(`Server running on http://127.0.0.1:${PORT}`);
 });
+
+export default app;
