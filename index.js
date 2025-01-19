@@ -2,12 +2,13 @@ import express from 'express';
 import nunjucks from 'nunjucks';
 import renderPage from './lib/renderPage.js';
 import ApiBackend from './src/js/ApiBackend.js';
+import path from 'path';
 
 const PORT = process.env.PORT || 5080;
 const app = express();
 const backend = new ApiBackend('https://plankton-app-xhkom.ondigitalocean.app/api');
 
-nunjucks.configure('templates', {
+nunjucks.configure(path.join(__dirname, 'templates'), {
   autoescape: true,
   express: app,
 });
