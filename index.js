@@ -31,7 +31,30 @@ app.get('/about-us', (request, response) => {
 app.get('/movies/api', async (request, response) => {
   try {
     const films = await backend.loadAllFilms();
-    response.json(films);
+
+    const newFilms = [];
+    for (let i = 0; i < films.data.length; i++) {
+      const film = films.data[i];
+
+      const updatedFilm = {
+        id: film.id,
+        attributes: {
+          title: film.attributes.title,
+          imdbId: film.attributes.imdbId,
+          intro: marked.parse(film.attributes.intro),
+          image: film.attributes.image,
+          createdAt: film.attributes.createdAt,
+          updatedAt: film.attributes.updatedAt,
+          publishedAt: film.attributes.publishedAt,
+        },
+      };
+
+      newFilms.push(updatedFilm);
+    }
+
+    response.json({
+      data: newFilms,
+    });
   } catch (error) {
     response.status(500).json({ error: 'Failed to fetch movies' });
   }
