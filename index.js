@@ -27,6 +27,16 @@ app.get('/about-us', (request, response) => {
   renderPage(response, 'pages/about-us', 'About');
 });
 
+app.get('/movies/api', async (request, response) => {
+  try {
+    const films = await backend.loadAllFilms();
+    response.json(films);
+  } catch (error) {
+    console.error('Error fetching movies:', error.message);
+    response.status(500).json({ error: 'Failed to fetch movies' });
+  }
+});
+
 app.get('/movie/:id', async (request, response) => {
   const filmId = request.params.id;
   try {

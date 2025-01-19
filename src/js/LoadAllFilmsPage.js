@@ -7,8 +7,13 @@ export default class LoadAllFilmsPage extends EventTarget {
   }
 
   async start(listContainer) {
-    const filmsFromApi = await this.backend.loadAllFilms();
+    const response = await fetch('/movies/api');
+    if (!response.ok) {
+      throw new Error('Failed to load movies');
+    }
+    const filmsFromApi = await response.json();
     const filmsFromApiData = filmsFromApi.data;
+
     console.log(filmsFromApiData);
 
     this.filter = new SearchFilter('');
