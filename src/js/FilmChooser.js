@@ -10,7 +10,7 @@ export default class FilmChooser {
 
       const filmId = filmElem.dataset.id;
       if (filmId) {
-        window.location.href = `/movie/${filmId}`;
+        window.location.href = `/movies/id/${filmId}`;
       }
     });
   }
