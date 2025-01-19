@@ -2,6 +2,7 @@ import express from 'express';
 import nunjucks from 'nunjucks';
 import renderPage from './lib/renderPage.js';
 import ApiBackend from './src/js/ApiBackend.js';
+import { marked } from 'marked';
 
 const PORT = process.env.PORT || 5080;
 const app = express();
@@ -41,9 +42,11 @@ app.get('/movies/id/:id', async (request, response) => {
   try {
     const film = await backend.loadFilmById(filmId);
     const filmData = film.data.attributes;
+    const filmDataIntro = marked.parse(film.data.attributes.intro);
 
     renderPage(response, 'layout/movieLayout', filmData.title, {
       film: filmData,
+      filmDataIntro,
     });
   } catch (error) {
     response.status(404);
