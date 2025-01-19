@@ -7,13 +7,13 @@ const PORT = process.env.PORT || 5080;
 const app = express();
 const backend = new ApiBackend('https://plankton-app-xhkom.ondigitalocean.app/api');
 
-nunjucks.configure('templates', {
+nunjucks.configure('views', {
   autoescape: true,
   express: app,
 });
 
 app.set('view engine', 'njk');
-app.set('views', './templates');
+app.set('views', 'views');
 
 app.get('/', (request, response) => {
   renderPage(response, 'pages/index', 'Home');
