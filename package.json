@@ -37,5 +37,20 @@
     "node-fetch": "^3.3.2",
     "nunjucks": "^3.2.4",
     "sass": "^1.83.4"
-  }
+  },
+  "description": "---",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kirill9m/kino-bio-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kirill9m/kino-bio-server/issues"
+  },
+  "homepage": "https://github.com/Kirill9m/kino-bio-server#readme"
 }

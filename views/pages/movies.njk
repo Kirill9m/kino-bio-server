@@ -1,10 +1,12 @@
 {% extends "layout/movieLayout.njk" %}
-
 {% block movieEach %}
-    <li class="moviesSecond__list__elem">
-      <img src="{{data.attributes.image.url}}" class="moviesSecond__list__elem__image"  alt="{{data.attributes.title}} image">
-        <h3 class="moviesSecond__list__elem__title">{{data.attributes.title}}</h3>
-        <p class="moviesSecond__list__elem__desc">{{data.attributes.intro}}</p>
-        <a href="/movies/id/{{ data.id }}"><p class="moviesSecond__list__elem__rating">Click on the text to see more</p></a>
+  <li class="moviesSecond__list__elem">
+    <img src="{{ data.attributes.image.url }}" class="moviesSecond__list__elem__image" alt="{{ data.attributes.title }} image">
+      <h3 class="moviesSecond__list__elem__title">{{ data.attributes.title }}</h3>
+      <p class="moviesSecond__list__elem__desc">{{ data.attributes.intro | safe }}</p>
+      <a href="/movies/id/{{ data.id }}">
+        <p class="moviesSecond__list__elem__rating">Click on the text to see more</p>
+      </a>
     </li>
-{% endblock %}
+  {% endblock %}
+</li>

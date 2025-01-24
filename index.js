@@ -22,8 +22,13 @@ app.get('/', (request, response) => {
 
 app.get('/movies', async (request, response) => {
   const movies = await loadMovies();
-  response.render('pages/movies', { movies });
-  // renderPage(response, 'pages/movies', 'Movies');
+  movies.forEach(movie => {
+    if (movie.attributes && movie.attributes.intro) {
+      movie.attributes.intro = marked.parse(movie.attributes.intro);
+    }
+  });
+
+  renderPage(response, 'pages/movies', { movies });
 });
 
 app.get('/about-us', (request, response) => {
@@ -32,19 +37,15 @@ app.get('/about-us', (request, response) => {
 
 app.get('/movies/id/:id', async (request, response) => {
   try {
-    const movie = await loadMovie(req.params.movieId);
-    res.render('movie', { movie });
-    // const film = await backend.loadFilmById(filmId);
-    // const filmData = film.data.attributes;
-    // const filmDataIntro = marked.parse(film.data.attributes.intro);
-
-    // renderPage(response, 'layout/movieLayout', filmData.title, {
-    //   film: filmData,
-    //   filmDataIntro,
-    // });
+    const movie = await loadMovie(request.params.id);
+    Object.assign(movie.attributes, {
+      intro: marked.parse(movie.attributes.intro),
+    });
+    
+    renderPage(response, 'pages/movie', { movie });
   } catch (error) {
     response.status(404);
-    renderPage(response, 'pages/404', 'Error 404', { title: '404 Not Found' });
+    renderPage(response, 'pages/404', { title: "Det finns inget sådant ID eller film!" });
   }
 });
 app.use('/src', express.static('./src'));
