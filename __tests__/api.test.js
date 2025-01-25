@@ -1,7 +1,39 @@
 import { expect, test } from '@jest/globals';
 import request from 'supertest';
 import initApp from "../src/backend/app.js";
-const app = initApp();
+import { loadMovie } from '../src/backend/moviesLoad.js';
+
+const app = initApp({
+  /*loadMovie: async (id) => {
+    if (Number(id) === 1) {
+      return {
+        id: 1,
+        title: 'Encanto',
+      };
+    }
+    throw new Error('Not found');
+  },
+  */
+  loadMovies: async () => [
+    {
+      id: 1,
+      title: 'Encanto',
+    },
+    {
+      id: 2,
+      title: 'Forrest Gump'
+    },
+    {
+      id: 3,
+      title: 'Training Day'
+    },
+  ]
+});
+
+const api = {
+  loadMovie: loadMovie,
+};
+const appOnline = initApp(api);
 
 test('Movies page shows list of films', async () => {
   const response = await request(app)
@@ -15,7 +47,7 @@ test('Movies page shows list of films', async () => {
 });
 
 test('Movie page shows a film', async () => {
-  const response = await request(app)
+  const response = await request(appOnline)
     .get('/movies/id/1')
     .expect('Content-Type', /html/)
     .expect(200);

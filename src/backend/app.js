@@ -4,7 +4,7 @@ import renderPage from '../../lib/renderPage.js';
 import { marked } from 'marked';
 import { loadMovie, loadMovies } from './moviesLoad.js';
 
-function initApp() {
+function initApp(api) {
     const app = express();
 
     nunjucks.configure('views', {
@@ -20,7 +20,7 @@ function initApp() {
     });
 
     app.get('/movies', async (request, response) => {
-        const movies = await loadMovies();
+        const movies = await api.loadMovies();
         movies.forEach(movie => {
             if (movie.attributes && movie.attributes.intro) {
                 movie.attributes.intro = marked.parse(movie.attributes.intro);
@@ -36,7 +36,7 @@ function initApp() {
 
     app.get('/movies/id/:id', async (request, response) => {
         try {
-            const movie = await loadMovie(request.params.id);
+            const movie = await api.loadMovie(request.params.id);
             Object.assign(movie, {
                 intro: marked.parse(movie.intro),
             });
