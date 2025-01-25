@@ -22,8 +22,8 @@ function initApp(api) {
     app.get('/movies', async (request, response) => {
         const movies = await api.loadMovies();
         movies.forEach(movie => {
-            if (movie.attributes && movie.attributes.intro) {
-                movie.attributes.intro = marked.parse(movie.attributes.intro);
+            if (movie && movie.intro) {
+                movie.intro = marked.parse(movie.intro);
             }
         });
 
