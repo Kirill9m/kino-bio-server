@@ -36,8 +36,8 @@ app.get('/about-us', (request, response) => {
 app.get('/movies/id/:id', async (request, response) => {
   try {
     const movie = await loadMovie(request.params.id);
-    Object.assign(movie.attributes, {
-      intro: marked.parse(movie.attributes.intro),
+    Object.assign(movie, {
+      intro: marked.parse(movie.intro),
     });
     
     renderPage(response, 'pages/movie', { movie });

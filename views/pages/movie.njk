@@ -3,9 +3,9 @@
   {% include "sections/head.njk" %}
   <body>
     {% include "sections/header.njk" %}
-    <h1 class="eachMovie__title">{{ movie.attributes.title }}</h1>
-    <span class="eachMovie__desc">{{ movie.attributes.intro | safe }}</span>
-    <img class="eachMovie__img" src="{{ movie.attributes.image.url }}" alt="{{ movie.attributes.title }} image">
+    <h1 class="eachMovie__title">{{ movie.title }}</h1>
+    <span class="eachMovie__desc">{{ movie.intro | safe }}</span>
+    <img class="eachMovie__img" src="{{ movie.image.url }}" alt="{{ movie.title }} image">
     <button class="eachMovie__btn">
       <a href="/movies">Tillbaka</a>
     </button>
