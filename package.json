@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "test": "cross-env NODE_NO_WARNINGS=1 NODE_OPTIONS=--experimental-vm-modules jest --runInBand --force-exit",
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
     "sass": "sass sass/styles.scss ./src/styles/main.css"
   },
   "husky": {

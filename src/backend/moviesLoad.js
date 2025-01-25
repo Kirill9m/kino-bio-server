@@ -1,4 +1,3 @@
-// import fetch from 'node-fetch';
 
 const API_BASE = 'https://plankton-app-xhkom.ondigitalocean.app/api';
 
