@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
-    "sass": "sass sass/styles.scss ./src/styles/main.css"
+    "sass": "sass --no-source-map src/sass/styles.scss ./static/styles/main.css"
   },
   "husky": {
     "hooks": {
