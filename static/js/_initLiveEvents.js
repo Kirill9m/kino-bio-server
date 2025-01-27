@@ -2,7 +2,7 @@ import LoadLiveEvents from './_frontpage_load_live_events.js';
 import LiveEventDOMHandler from './_live_event_DOM_handler.js';
 
 export default async function initLiveEvents() {
-  const apiPath = './src/assets/json/liveEvents.json';
+  const apiPath = './static/assets/liveEvents.json';
   const LiveEvents = new LoadLiveEvents(apiPath);
   const domHandler = new LiveEventDOMHandler('.live__list');
 

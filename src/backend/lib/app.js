@@ -1,6 +1,6 @@
 import express from 'express';
 import nunjucks from 'nunjucks';
-import renderPage from '../../lib/renderPage.js';
+import renderPage from './renderPage.js';
 import { marked } from 'marked';
 import { loadMovie, loadMovies } from './moviesLoad.js';
 
@@ -47,7 +47,7 @@ function initApp(api) {
             renderPage(response, 'pages/404', { title: "Det finns inget sådant ID eller film!" });
         }
     });
-    app.use('/src', express.static('./src'));
+    app.use('/static', express.static('./static'));
 
     return app;
 }

@@ -1,5 +1,5 @@
-import initApp from "./src/backend/app.js";
-import { loadMovie, loadMovies } from "./src/backend/moviesLoad.js";
+import initApp from "./src/backend/lib/app.js";
+import { loadMovie, loadMovies } from "./src/backend/lib/moviesLoad.js";
 
 const api = {
   loadMovie: loadMovie,
